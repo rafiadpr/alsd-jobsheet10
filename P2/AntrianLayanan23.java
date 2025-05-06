@@ -1,4 +1,3 @@
-
 public class AntrianLayanan23 {
 
     Mahasiswa23[] data;
