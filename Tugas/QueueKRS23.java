@@ -116,10 +116,6 @@ public class QueueKRS23 {
     }
 
     public int getBelumSelesai() {
-        int sisa = size - selesai;
-        if (sisa < 0) {
-            sisa = 0;
-        }
-        return sisa;
+        return size;
     }
 }
