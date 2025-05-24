@@ -34,14 +34,15 @@ public class QueueKRS23 {
         if (isFull()) {
             System.out.println("Antrian sudah penuh.");
             return;
-        }
-        if (isEmpty()) {
-            front = rear = 0;
         } else {
-            rear = (rear + 1) % max;
+            if (isEmpty()) {
+                front = rear = 0;
+            } else {
+                rear = (rear + 1) % max;
+            }
+            data[rear] = mhs;
+            size++;
         }
-        data[rear] = mhs;
-        size++;
     }
 
     public void dequeue2() {
@@ -76,9 +77,13 @@ public class QueueKRS23 {
     }
 
     public void clear() {
-        front = rear = -1;
-        size = selesai = 0;
-        System.out.println("Antrian dikosongkan.");
+        if (!isEmpty()) {
+            front = rear = -1;
+            size = selesai = 0;
+            System.out.println("Antrian dikosongkan.");
+        } else {
+            System.out.println("Queue masih kosong");
+        }
     }
 
     public void printAll() {
@@ -101,8 +106,7 @@ public class QueueKRS23 {
             System.out.println("Antrian kosong.");
             return;
         } else {
-            System.out.print("Mahasiswa terakhir dalam antrian : ");
-            System.out.println("NIM - NAMA - PRODI - KELAS");
+            System.out.println("Mahasiswa terakhir dalam antrian : ");
             data[rear].tampil();
         }
     }
